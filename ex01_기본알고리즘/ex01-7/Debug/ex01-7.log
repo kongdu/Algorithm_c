@@ -1,0 +1,4 @@
+﻿  ex01-7.c
+d:\kongdu\algorithm_c\ex01_기본알고리즘\ex01-7\ex01-7.c(75): warning C4013: 'system'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+d:\kongdu\algorithm_c\ex01_기본알고리즘\ex01-7\ex01-7.c(55): warning C4716: 'sumof': 값을 반환해야 합니다.
+  ex01-7.vcxproj -> D:\Kongdu\Algorithm_c\ex01_기본알고리즘\Debug\ex01-7.exe

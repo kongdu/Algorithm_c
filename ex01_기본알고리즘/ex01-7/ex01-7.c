@@ -25,14 +25,14 @@ void sumQ8(int n) {
 	if (n % 2 == 0) 
 	{
 		sum = (1 + n)*(n / 2);
-		printf("(1 + %d) * %d = %d\n", n, n / 2, sum);
+		printf("(1 + %d) * %d = %d\n\n", n, n / 2, sum);
 	}
 	else if(n % 2 ==1)
 	{
 		a = (n - 1) / 2;
 		b = (n + 1) / 2;
 		sum = ((1 + n)*a) + b;
-		printf("1부터 %d까지의 합은 %d\n", n, sum);
+		printf("1부터 %d까지의 합은 %d\n\n", n, sum);
 
 	}
 }
