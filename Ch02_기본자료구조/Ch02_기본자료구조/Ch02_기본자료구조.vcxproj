@@ -116,6 +116,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EX02.c" />
     <ClCompile Include="p2-1.c" />
     <ClCompile Include="p2-2.c" />
     <ClCompile Include="p2-3.c" />
@@ -123,6 +124,7 @@
     <ClCompile Include="p2-5.c" />
     <ClCompile Include="p2-6.c" />
     <ClCompile Include="p2-7.c" />
+    <ClCompile Include="p2-8.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
