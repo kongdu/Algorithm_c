@@ -123,29 +123,31 @@ int main(void)
 
 //Q5 배열요소 역순으로 정렬하는 중간 과정을 일일이 출력하기
 /*
+이중포문쓸때 제어변수를 꼭 바꿔라!!!!!! 
 #define swap(type, x, y) do{type t = x; x=y; y = t;} while(0)
 
- 1    2	   3	 4	  5	   6	7
-a[0] a[1] a[2] a[3] a[4] a[5] a[6]
-a[0] <-> a[6]
-a[1] <-> a[5]
-a[2] <-> a[4]
+
+// 1    2	   3	 4	  5	   6	7
+//a[0] a[1] a[2] a[3] a[4] a[5] a[6]
+//a[0] <-> a[6]
+//a[1] <-> a[5]
+//a[2] <-> a[4]
 
 
-void arr_reverse(int a[], int n) {
-	int i;
-	for (i = 0; i < n / 2; i++)
-	{
-		swap(int, a[i], a[n - i - 1]);
-	}
-}
+
 
 void ary_reverse(int a[], int n) {
 	int i;
 	for (i = 0; i < n / 2; i++)
 	{
+		printf("a[%2d]랑 a[%2d]를 교환합니다\n", i, n - i - 1);
 		swap(int, a[i], a[n - i - 1]);
+		for (int j = 0; j < n; j++) {
+			printf("%2d ", a[j]);
+		}
+		printf("\n");
 	}
+
 }
 
 int main(void)
@@ -163,16 +165,16 @@ int main(void)
 		scanf_s("%d", &x[i]);
 	}
 	printf("\n**역순 정렬시작**\n");
-	for (i = 0; i < nx; i++) {
-		printf("%d ", x[i]);
-	}
+	//for (i = 0; i < nx; i++) {
+	//	printf("%d ", x[i]);
+	//}
 	printf("\n");
 	ary_reverse(x, nx);
 	//printf("배열의요소를 역순으로 정렬했습니다\n");
-	for (i = 0; i < nx; i++) {
-		printf("%d ", x[i]);
-	}
-	printf("\n역순 정렬을 종료합니다\n");
+	//for (i = 0; i < nx; i++) {
+	//	printf("%d ", x[i]);
+	//}
+	printf("역순 정렬을 종료합니다\n");
 	free(x);
 
 	system("pause");
@@ -180,7 +182,51 @@ int main(void)
 }*/
 
 
+//Q6 card_convr함수를 수정해서 배열의 맨 앞쪽에 아랫자리가 아니라 윗자리를 저장하는 card_conv함수를 작성하세요
+//배열에 넣을때 거꾸로 넣는데 순차적으로 넣도록 바꾸기
+int card_convr(unsigned x, int n, char d[]) {
+	char dchar[] = "0123456789ABCDEFGHIJKLMNOPWRSTUVQXYZ";
+	int digits = 0; //변환 후 자리수
+	if (x == 0) {
+		d[digits++] = dchar[0];
+	}
+	else {
+		while (x) {
+			d[digits++] = dchar[x%n];
+			x /= n;
+		}
+	}
+	return digits;
+}
 
+int main(void)
+{
+	int i;
+	unsigned no; //변환하는정수
+	int cd;		//기수
+	int dno;	//변환 후 자릿수
+	char cno[512];
+	int retry;
+	puts("10진수를 기수 변환합니다");
+	do {
+		printf("변환할 음이아닌 정수를 입력하시오: ");
+		scanf_s("%u", &no);
+		do {
+			printf("어떤 진수로 변환할까요? (2~36진수) : ");
+			scanf_s("%d", &cd);
+		} while (cd < 2 || cd >36);
+		dno = card_convr(no, cd, cno); //no를 cd진수로 변환
+		printf("%d진수로 표현하면 ", cd);
+		for (i = dno - 1; i >= 0; i--) {
+			printf("%c", cno[i]);
+		}
+			printf("입니다\n");
+			printf("한 번 더 할까요? (1 - 예/ 0 - 아니오) : ");
+			scanf_s("%d", &retry);
+	}while (retry == 1);
+	system("pause");
+	return 0;
+}
 
 //Q10 배열의 모든 요소 뒤집는 셔플shuffle 함수 작성
 //void shuffle(int a[], int n);
