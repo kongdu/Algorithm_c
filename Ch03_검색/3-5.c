@@ -3,15 +3,16 @@
 #include <stdlib.h>
 //정렬된 배열 x의 요소에서 입력한 값 ky 요소 찾기
 //정수를 비교하는 함수(오름차순)
-int int_cmp(const int a[], int n, int key)
-{
-	if (a* < *b)
-		return -1;
-	else if (*a > *b)
-		return 1;
-	else
-		return 0;
+
+int int_cmp(const int *a, const int *b){
+    if (*a < *b) {
+        return -1;
+    }else if(*a > *b){
+        return 1;
+    }else
+        return 0;
 }
+
 
 int main()
 {
