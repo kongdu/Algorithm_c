@@ -50,6 +50,8 @@ int main(void)
     }else{
         printf("%d는 x[%d]에 있습니다\n", ky, idx);
     }
+
     free(x);    //배열해제
+    scanf("%d", &nx);
     return 0;
 }
